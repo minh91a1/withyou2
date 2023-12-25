@@ -6,6 +6,7 @@ import React, {
   forwardRef,
 } from "react";
 import { api_endpoint } from "../common/constants";
+import Image from "next/image";
 
 interface Props {
   value: any;
@@ -93,10 +94,18 @@ export const ImageUploader = forwardRef(
               {
                 <div className="flex justify-center align-middle relative overflow-hidden rounded-lg">
                   <div className="absolute z-1 blur-lg scale-150">
-                    <img src={preview ?? ""} className="w-full object-cover" />
+                    <Image
+                      src={preview ?? ""}
+                      className="w-full object-cover"
+                      alt="preview image"
+                    />
                   </div>
                   <div className="z-10">
-                    <img src={preview ?? ""} className="h-60 object-contain" />
+                    <Image
+                      src={preview ?? ""}
+                      className="h-60 object-contain"
+                      alt="preview image"
+                    />
                   </div>
                 </div>
               }

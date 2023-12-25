@@ -26,6 +26,7 @@ export default function EditPost({ params }: PostDetailProps) {
 
   useEffect(() => {
     init();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

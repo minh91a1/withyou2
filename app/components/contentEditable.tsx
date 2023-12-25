@@ -26,6 +26,7 @@ export const ContentEditable = forwardRef<ContentEditableHandle, Props>(
       if (textareaEl.current) {
         textareaEl.current.textContent = value;
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

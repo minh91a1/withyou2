@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 
 import { PencilSquareIcon, FaceSmileIcon } from "@heroicons/react/24/outline";
 import { api_endpoint } from "@/app/common/constants";
+import Image from "next/image";
 
 async function getPosts({ page, limit }: { page: number; limit: number }) {
   const offset = page * limit;
@@ -64,6 +65,7 @@ export const PostList = () => {
     if (isClient) {
       init();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isClient, page]);
 
   if (!isClient) {
@@ -80,14 +82,15 @@ export const PostList = () => {
             onClick={() => onClickPost(post)}
           >
             <div className="img-container h-20 w-20 overflow-hidden outline-1 outline-gray-600">
-              <img
+              <Image
                 className="object-cover h-20 w-20"
                 src={
                   post.imagePath
                     ? `${api_endpoint}/${post.imagePath}`
                     : `${api_endpoint}/images/1672642014952_082cs1de4j96uq4g27d0kg.png`
                 }
-              ></img>
+                alt="post-image"
+              ></Image>
             </div>
 
             {/* <div className="object-cover w-full h-8 img-cover bg-slate-950"></div> */}
